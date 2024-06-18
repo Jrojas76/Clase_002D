@@ -25,17 +25,23 @@ def opcion1():
                     'Dcto AFP': desc_afp,
                     'Sueldo Liquido': sueldo_liquido,
                 })
+
 print(lista_trabajadores)
 
 def opcion2():
-  print('Ha seleccionado la opcion 2, Listar todos los trabajadores')
-  print(lista_trabajadores)
+    print('Ha seleccionado la opcion 2, Listar todos los trabajadores')
+    longitud = len(lista_trabajadores)
+    print(f'Nombre y Apellido\t    Cargo\t    Sueldo Bruto\t    Dcto Salud\t    Dcto AFP\t    Sueldo Liquido')
+    for contador in range(longitud):
+        print(f'{lista_trabajadores[contador]["Nombre y Apellido"]}\t         {lista_trabajadores[contador]["Cargo"]}\t         {lista_trabajadores[contador]["Sueldo Bruto"]}\t         {lista_trabajadores[contador]["Dcto Salud"]}\t         {lista_trabajadores[contador]["Dcto AFP"]}\t         {lista_trabajadores[contador]["Sueldo Liquido"]}')
+
 
 def opcion3():
-  print('Ha seleccionado la opcion 3, Imprimir plantilla de trabajadores')
-  with open('tabla_t.txt', 'w') as archivo:
-    contenido = archivo.write(tabla_t)
-    print(contenido)
+    print('Ha seleccionado la opcion 3, Imprimir plantilla de trabajadores')
+    with open(r'C:\Users\cetecom\tabla.txt', 'w', newline='') as archivo:
+        archivo.write(f'Nombre y Apellido\t    Cargo\t    Sueldo Bruto\t    Dcto Salud\t    Dcto AFP\t    Sueldo Liquido')
+        for lista in lista_trabajadores:
+           archivo.write(f'{lista_trabajadores["Nombre y Apellido"]}\t         {lista_trabajadores["Cargo"]}\t         {lista_trabajadores["Sueldo Bruto"]}\t         {lista_trabajadores["Dcto Salud"]}\t         {lista_trabajadores["Dcto AFP"]}\t         {lista_trabajadores["Sueldo Liquido"]}\t')
 
 
 tabla_t = 'tabla_t.txt'
