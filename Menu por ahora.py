@@ -11,17 +11,21 @@ def menu():
 def opcion1():
   print('Ha seleccionado la opcion 1, Registrar trabajador')
   nombre_apellido = input('Ingrese el nombre y apellido del trabajador: ')
-  lista_trabajadores.append(nombre_apellido)
   cargo = input('Ingrese el cargo del trabajador: ')
-  lista_trabajadores.append(cargo)
   sueldo_bruto = int(input('Ingrese el sueldo bruto del trabajador: '))
-  lista_trabajadores.append(sueldo_bruto)
   desc_afp = 0.12
   desc_salud = 0.07
   sueldo_liquido = sueldo_bruto - ((desc_salud * sueldo_bruto) + (desc_afp * sueldo_bruto))
-  lista_trabajadores.append(sueldo_liquido)
   print(f'El sueldo liquido es {sueldo_liquido}')
-
+  lista_trabajadores.append({
+                    'Nombre y Apellido': nombre_apellido,
+                    'Cargo': cargo,
+                    'Sueldo Bruto': sueldo_bruto,
+                    'Dcto Salud': desc_salud,
+                    'Dcto AFP': desc_afp,
+                    'Sueldo Liquido': sueldo_liquido,
+                })
+print(lista_trabajadores)
 
 def opcion2():
   print('Ha seleccionado la opcion 2, Listar todos los trabajadores')
